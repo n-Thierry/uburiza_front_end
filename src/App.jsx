@@ -6,9 +6,15 @@ import ResourceLibrary from './views/ResourceLibrary';
 import CertificateView from './views/CertificateView';
 import OperationalAnalytics from './views/OperationalAnalytics';
 import AdminManagementForms from './views/AdminManagementForms';
+import LandingPage from './views/LandingPage';
+import CourseCatalog from './views/CourseCatalog';
+import CourseOverview from './views/CourseOverview';
+import CourseMaterial from './views/CourseMaterial';
+import { AppProvider } from './context/AppContext';
+import { AnimatePresence, motion } from 'framer-motion';
 
-function App() {
-  const [view, setView] = useState('Dashboard');
+function AppContent() {
+  const [view, setView] = useState('LandingPage'); // Start on LandingPage by default
 
   const renderView = () => {
     switch(view) {
@@ -22,21 +28,75 @@ function App() {
         return <OperationalAnalytics setView={setView} />;
       case 'AdminForms':
         return <AdminManagementForms setView={setView} />;
+      case 'LandingPage':
+        return <LandingPage setView={setView} />;
+      case 'CourseCatalog':
+        return <CourseCatalog setView={setView} />;
+      case 'CourseOverview':
+        return <CourseOverview view={view} setView={setView} />;
+      case 'CourseMaterial':
+        return <CourseMaterial view={view} setView={setView} />;
       default:
-        return <LearnerDashboard setView={setView} />;
+        return <LandingPage setView={setView} />;
     }
   };
 
+  const isFullPageView = ['LandingPage', 'CourseCatalog', 'CourseOverview', 'CourseMaterial'].includes(view);
+
+  const pageVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.2 } }
+  };
+
+  if (isFullPageView) {
+    return (
+      <div className="font-sans min-h-screen dark:bg-gray-900 transition-colors duration-300">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={view}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageVariants}
+            className="h-full"
+          >
+            {renderView()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    );
+  }
+
   return (
-    <div className="container-custom flex font-sans overflow-hidden">
+    <div className="container-custom flex font-sans overflow-hidden bg-gray-50 dark:bg-gray-900 h-screen transition-colors duration-300">
       <Sidebar view={view} setView={setView} />
       <div className="flex-1 flex flex-col h-screen overflow-hidden relative">
         <TopNav view={view} setView={setView} />
         <main className="flex-1 overflow-y-auto">
-          {renderView()}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={view}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+              className="h-full"
+            >
+              {renderView()}
+            </motion.div>
+          </AnimatePresence>
         </main>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <AppProvider>
+      <AppContent />
+    </AppProvider>
   );
 }
 
