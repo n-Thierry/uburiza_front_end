@@ -7,10 +7,12 @@ export default function TopNavPublic({ setView }) {
     <header className="bg-white border-b border-emerald-200 h-16 flex items-center justify-between px-8 sticky top-0 z-50 transition-colors duration-300">
       <div className="flex items-center space-x-12">
         <div 
-          className="flex items-center space-x-2 text-black font-bold text-xl cursor-pointer" 
+          className="flex items-center space-x-2 text-emerald-800 font-bold text-xl cursor-pointer" 
           onClick={() => setView('LandingPage')}
         >
-          <Activity className="w-6 h-6" />
+          <div className="w-8 h-8 rounded-full bg-emerald-800 flex items-center justify-center">
+            <Activity className="w-5 h-5 text-white" />
+          </div>
           <span>Uburiza Learn</span>
         </div>
         

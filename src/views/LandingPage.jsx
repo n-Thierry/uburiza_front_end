@@ -17,10 +17,10 @@ export default function LandingPage({ setView }) {
               <span className="w-8 h-[2px] bg-black"></span>
               <span>Empowering African Tech Leaders</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-black leading-tight mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold text-emerald-900 leading-tight mb-6">
               Master Digital <br/>
-              Skills. <span className="text-black">Lead</span> <br/>
-              <span className="text-black">the Future.</span>
+              Skills. <span className="text-emerald-500">Lead</span> <br/>
+              <span className="text-emerald-500">the Future.</span>
             </h1>
             <p className="text-black text-lg mb-10 max-w-md">
               Unlock your potential with premium, African-led digital education. From AI to Entrepreneurship, we build the leaders of tomorrow.
@@ -198,15 +198,15 @@ export default function LandingPage({ setView }) {
         {/* Testimonial Section */}
         <section className="py-24 px-8 md:px-16 max-w-4xl mx-auto text-center">
           <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-8">
-            <span className="text-3xl text-black font-serif">"</span>
+            <span className="text-3xl text-emerald-600 font-serif">"</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-bold text-black leading-tight mb-10">
+          <h2 className="text-2xl md:text-4xl font-bold text-emerald-900 leading-tight mb-10">
             "Uburiza Learn didn't just teach me how to code; it gave me the confidence to launch my own startup in Nairobi. The curriculum is perfectly suited for our market."
           </h2>
           <div className="flex flex-col items-center">
             <img src="https://i.pravatar.cc/150?img=32" alt="Fatima Diop" className="w-16 h-16 rounded-full border-4 border-white shadow-lg mb-4" />
-            <h4 className="font-bold text-black text-lg">Fatima Diop</h4>
-            <p className="text-black">Founder, GreenTech Kenya</p>
+            <h4 className="font-bold text-emerald-900 text-lg">Fatima Diop</h4>
+            <p className="text-emerald-600">Founder, GreenTech Senegal</p>
           </div>
         </section>
 
@@ -219,25 +219,25 @@ export default function LandingPage({ setView }) {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 relative z-10">
               Ready to start your digital journey?
             </h2>
-            <p className="text-black text-lg mb-10 max-w-2xl mx-auto relative z-10">
-              Join thousands of African learners building the future of Africa today. No credit card required to start.
+            <p className="text-emerald-50 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+              Join thousands of students and build the future of Africa today. No credit card required to start.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-10 relative z-10">
               <button 
                 onClick={() => setView('Signup')}
-                className="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-lg font-bold hover:bg-emerald-50 transition-colors shadow-lg"
+                className="w-full sm:w-auto bg-white text-emerald-600 px-8 py-4 rounded-lg font-bold hover:bg-emerald-50 transition-colors shadow-lg"
               >
-                JOIN 50K+ AFRICAN LEARNERS
+                Start Learning for Free
               </button>
               <button 
                 onClick={() => setView('CourseCatalog')}
-                className="w-full sm:w-auto bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-emerald-700 transition-colors border border-emerald-400"
+                className="w-full sm:w-auto bg-white text-gray-700 px-8 py-4 rounded-lg font-bold hover:bg-gray-50 transition-colors shadow-lg"
               >
-                EXPLORE COURSES
+                Explore Resources
               </button>
             </div>
             
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-black relative z-10">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-emerald-50 relative z-10">
               <div className="flex items-center space-x-2">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Expert Instructors</span>

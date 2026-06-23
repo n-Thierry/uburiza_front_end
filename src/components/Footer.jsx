@@ -6,8 +6,10 @@ export default function Footer() {
     <footer className="bg-white border-t border-emerald-200 py-16 px-8 md:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1">
-          <div className="flex items-center space-x-2 text-black font-bold text-xl mb-4">
-            <Activity className="w-6 h-6" />
+          <div className="flex items-center space-x-2 text-emerald-800 font-bold text-xl mb-4">
+            <div className="w-8 h-8 rounded-full bg-emerald-800 flex items-center justify-center">
+              <Activity className="w-5 h-5 text-white" />
+            </div>
             <span>Uburiza Learn</span>
           </div>
           <p className="text-black text-sm mb-8">

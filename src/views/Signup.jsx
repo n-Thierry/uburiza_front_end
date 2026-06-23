@@ -34,24 +34,22 @@ export default function Signup({ setView }) {
   };
 
   return (
-    <div className="min-h-screen flex bg-slate-50 transition-colors duration-300 font-sans">
+    <div className="h-screen overflow-hidden flex flex-row-reverse bg-slate-50 transition-colors duration-300 font-sans">
       
       {/* Left Panel - Branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-emerald-900 relative overflow-hidden flex-col justify-between p-12 order-2">
+      <div className="hidden lg:flex lg:w-1/2 bg-emerald-900 relative overflow-hidden flex-col justify-center p-12 order-2">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')] opacity-20 bg-cover bg-center mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-900/80 to-transparent"></div>
         
-        <div className="relative z-10 flex justify-end">
-          <div 
-            className="flex items-center space-x-2 text-black font-bold text-2xl cursor-pointer" 
-            onClick={() => setView('LandingPage')}
-          >
-            <Activity className="w-8 h-8" />
-            <span>Uburiza Learn</span>
-          </div>
+        <div 
+          className="relative z-10 flex items-center space-x-2 text-white font-bold text-2xl cursor-pointer w-fit mb-12" 
+          onClick={() => setView('LandingPage')}
+        >
+          <Activity className="w-8 h-8" />
+          <span>Uburiza Learn</span>
         </div>
         
-        <div className="relative z-10 max-w-md ml-auto text-right">
+        <div className="relative z-10 max-w-md">
           <h1 className="text-4xl font-bold text-white mb-6 leading-tight">Start your learning journey today.</h1>
           <p className="text-emerald-100/80 text-lg leading-relaxed mb-8">
             Get access to world-class courses tailored for the African tech ecosystem. Build skills, earn certificates, and connect with peers.
@@ -74,12 +72,14 @@ export default function Signup({ setView }) {
       </div>
 
       {/* Right Panel - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-24 relative order-1">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:px-24 lg:py-8 relative order-1 overflow-y-auto">
         <div 
-          className="absolute top-8 left-8 lg:hidden flex items-center space-x-2 text-black font-bold text-xl cursor-pointer" 
+          className="absolute top-8 left-8 lg:hidden flex items-center space-x-2 text-emerald-800 font-bold text-xl cursor-pointer" 
           onClick={() => setView('LandingPage')}
         >
-          <Activity className="w-6 h-6" />
+          <div className="w-8 h-8 rounded-full bg-emerald-800 flex items-center justify-center">
+            <Activity className="w-5 h-5 text-white" />
+          </div>
           <span>Uburiza Learn</span>
         </div>
 
