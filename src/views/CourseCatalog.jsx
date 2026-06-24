@@ -86,7 +86,7 @@ export default function CourseCatalog({ setView }) {
     <div className="bg-white min-h-screen flex flex-col font-sans">
       <TopNavPublic setView={setView} />
       
-      <main className="flex-1 max-w-7xl mx-auto px-8 py-12 w-full">
+      <main className="flex-1 w-full px-8 py-12">
         {/* Header */}
         <div className="mb-10">
           <div className="inline-block border border-emerald-200 text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full text-xs font-bold tracking-wider mb-4">

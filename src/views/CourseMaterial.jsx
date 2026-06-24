@@ -132,7 +132,7 @@ export default function CourseMaterial({ view, setView }) {
 
         {/* Main Content Area */}
         <div className="flex-1 bg-white overflow-y-auto flex flex-col transition-colors duration-300">
-          <div className="p-8 max-w-5xl mx-auto w-full">
+          <div className="p-8 w-full">
             
             {/* Breadcrumb */}
             <div className="flex items-center space-x-2 text-sm text-black mb-6">

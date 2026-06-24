@@ -146,7 +146,7 @@ export default function AdminManagementForms() {
 
         {/* Main Content Area */}
         <div className="flex-1 overflow-y-auto bg-white flex flex-col relative pb-24">
-          <div className="max-w-4xl w-full mx-auto p-10 flex-1">
+          <div className="w-full p-10 flex-1">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h1 className="text-2xl font-bold text-black mb-1">Module Configuration</h1>

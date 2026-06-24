@@ -11,7 +11,7 @@ export default function LandingPage({ setView }) {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="px-8 md:px-16 py-16 md:py-24 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <section className="px-8 md:px-16 py-16 md:py-24 w-full flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
             <div className="flex items-center space-x-2 text-emerald-600 font-medium mb-6">
               <span className="w-8 h-[2px] bg-emerald-500"></span>
@@ -70,7 +70,7 @@ export default function LandingPage({ setView }) {
 
         {/* Logos Section */}
         <section className="border-t border-b border-emerald-100 py-10 bg-emerald-50/50">
-          <div className="max-w-7xl mx-auto px-8">
+          <div className="w-full px-8 md:px-16">
             <p className="text-center text-xs font-bold text-black tracking-widest uppercase mb-8">
               Trusted by Africa's Leading Innovators
             </p>
@@ -86,7 +86,7 @@ export default function LandingPage({ setView }) {
         </section>
 
         {/* Popular Learning Paths */}
-        <section className="py-24 px-8 md:px-16 max-w-7xl mx-auto text-center">
+        <section className="py-24 px-8 md:px-16 w-full text-center">
           <h2 className="text-3xl font-bold text-black mb-4">Popular Learning Paths</h2>
           <p className="text-black max-w-2xl mx-auto mb-16">
             Tailored curriculums designed for the unique challenges and opportunities of the African digital economy.
@@ -112,7 +112,7 @@ export default function LandingPage({ setView }) {
 
         {/* Featured Courses */}
         <section className="py-24 px-8 md:px-16 bg-emerald-50">
-          <div className="max-w-7xl mx-auto">
+          <div className="w-full">
             <div className="flex justify-between items-end mb-12">
               <div>
                 <h2 className="text-3xl font-bold text-black mb-4">Featured Courses</h2>
@@ -180,7 +180,7 @@ export default function LandingPage({ setView }) {
 
         {/* Stats Section */}
         <section className="bg-emerald-900 py-16 px-8 md:px-16">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-emerald-800">
+          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-emerald-800">
             {[
               { value: '50K+', label: 'ACTIVE STUDENTS' },
               { value: '120+', label: 'DIGITAL COURSES' },
@@ -211,7 +211,7 @@ export default function LandingPage({ setView }) {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 px-8 md:px-16 max-w-7xl mx-auto">
+        <section className="py-16 px-8 md:px-16 w-full">
           <div className="bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-3xl p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
             {/* Decorative background circle */}
             <div className="absolute top-0 right-0 -mr-32 -mt-32 w-96 h-96 bg-white opacity-10 rounded-full blur-3xl"></div>

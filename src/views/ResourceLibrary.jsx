@@ -157,7 +157,7 @@ export default function ResourceLibrary() {
 
         {/* Footer */}
         <footer className="bg-white border-t border-emerald-200 py-12 px-8">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-1">
               <div className="flex items-center space-x-2 text-emerald-800 font-bold text-xl mb-4">
                 <div className="w-8 h-8 rounded-full bg-emerald-800 flex items-center justify-center">
@@ -200,7 +200,7 @@ export default function ResourceLibrary() {
             </div>
           </div>
           
-          <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-emerald-100 flex flex-col md:flex-row justify-between items-center text-sm text-black">
+          <div className="w-full mt-12 pt-8 border-t border-emerald-100 flex flex-col md:flex-row justify-between items-center text-sm text-black">
             <p>Built for the future of Africa. © 2024 Uburiza Learn.</p>
           </div>
         </footer>

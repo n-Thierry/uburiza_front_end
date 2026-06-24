@@ -11,7 +11,7 @@ export default function SettingsView() {
   ];
 
   return (
-    <div className="p-8 max-w-4xl mx-auto w-full">
+    <div className="p-8 w-full">
       <h1 className="text-3xl font-bold text-black mb-8">Settings</h1>
       
       <div className="bg-white rounded-2xl shadow-sm border border-emerald-100 flex flex-col md:flex-row overflow-hidden">

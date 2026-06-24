@@ -48,7 +48,7 @@ export default function CourseOverview({ view, setView }) {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="bg-emerald-50 border-b border-emerald-100 py-16 px-8 md:px-16">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
+          <div className="w-full flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1 space-y-6">
               <div className="flex items-center space-x-3">
                 <span className="bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -107,7 +107,7 @@ export default function CourseOverview({ view, setView }) {
         </section>
 
         {/* Content Section */}
-        <section className="py-16 px-8 md:px-16 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+        <section className="py-16 px-8 md:px-16 w-full flex flex-col lg:flex-row gap-12">
           
           {/* Main Column */}
           <div className="flex-1 space-y-16">

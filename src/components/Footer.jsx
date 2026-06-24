@@ -4,7 +4,7 @@ import { Activity } from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-emerald-200 py-16 px-8 md:px-16">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="w-full px-8 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1">
           <div className="flex items-center space-x-2 text-emerald-800 font-bold text-xl mb-4">
             <div className="w-8 h-8 rounded-full bg-emerald-800 flex items-center justify-center">
@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-emerald-100 flex flex-col md:flex-row justify-between items-center text-sm text-black">
+      <div className="w-full px-8 md:px-16 mt-16 pt-8 border-t border-emerald-100 flex flex-col md:flex-row justify-between items-center text-sm text-black">
         <p>Built for the future of Africa. © 2024 Uburiza Learn.</p>
         <div className="flex space-x-6 mt-4 md:mt-0">
           <a href="#" className="hover:text-emerald-700 transition-colors">Privacy Policy</a>
