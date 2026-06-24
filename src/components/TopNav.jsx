@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Bell, Search, Activity, Flame, Menu, X } from 'lucide-react';
+import { Bell, Search, Activity, Flame, Menu, X, ChevronDown, User, LayoutDashboard, Settings, LogOut, ShieldCheck } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
 
 export default function TopNav({ view, setView }) {
-  const { streak } = useAppContext();
+  const { streak, userRole, setUserRole } = useAppContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  
+  const isAdmin = userRole === 'admin';
 
   return (
     <header className="bg-white border-b border-emerald-200 h-16 flex items-center justify-between px-8 sticky top-0 z-10 transition-colors duration-300">
@@ -17,9 +20,17 @@ export default function TopNav({ view, setView }) {
         </div>
         
         <nav className="hidden md:flex space-x-6 text-sm font-medium">
-          <button onClick={() => setView('Dashboard')} className={`${view === 'Dashboard' ? 'text-black' : 'text-black hover:text-gray-700'}`}>Courses</button>
-          <button onClick={() => setView('Resources')} className={`${view === 'Resources' ? 'text-black' : 'text-black hover:text-gray-700'}`}>Resources</button>
-          <button onClick={() => setView('Analytics')} className={`${view === 'Analytics' ? 'text-black' : 'text-black hover:text-gray-700'}`}>Admin</button>
+          <button onClick={() => setView('CourseCatalog')} className={`${view === 'CourseCatalog' ? 'text-emerald-700 font-bold' : 'text-black hover:text-emerald-700 transition-colors'}`}>Courses</button>
+          <button onClick={() => setView('Resources')} className={`${view === 'Resources' ? 'text-emerald-700 font-bold' : 'text-black hover:text-emerald-700 transition-colors'}`}>Resources</button>
+          {!isAdmin ? (
+            <button onClick={() => { setUserRole('admin'); setView('Analytics'); }} className="text-black hover:text-emerald-700 transition-colors flex items-center">
+              <ShieldCheck className="w-4 h-4 mr-1" /> Admin
+            </button>
+          ) : (
+            <button onClick={() => { setUserRole('learner'); setView('Dashboard'); }} className="text-emerald-600 font-bold hover:text-emerald-800 transition-colors flex items-center">
+              <User className="w-4 h-4 mr-1" /> Learner View
+            </button>
+          )}
         </nav>
       </div>
 
@@ -43,9 +54,54 @@ export default function TopNav({ view, setView }) {
           <span className="absolute top-0 right-0 w-2 h-2 bg-emerald-500 rounded-full"></span>
         </button>
 
-        <div className="relative cursor-pointer">
-          <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" className="w-8 h-8 rounded-full border border-emerald-200" />
-          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+        <div 
+          className="relative cursor-pointer group"
+          onMouseEnter={() => setIsProfileDropdownOpen(true)}
+          onMouseLeave={() => setIsProfileDropdownOpen(false)}
+        >
+          <div className="flex items-center space-x-2">
+            <div className="relative">
+              <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" className="w-8 h-8 rounded-full border border-emerald-200" />
+              <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+            </div>
+            <ChevronDown className="w-4 h-4 text-gray-500 group-hover:text-black transition-colors" />
+          </div>
+
+          {/* Dropdown Menu */}
+          {isProfileDropdownOpen && (
+            <div className="absolute right-0 top-full pt-2 w-48 z-50">
+              <div className="bg-white border border-emerald-100 rounded-xl shadow-xl overflow-hidden">
+                <div className="p-3 border-b border-emerald-50 bg-emerald-50/50">
+                  <p className="text-sm font-bold text-black">Abebe Bikila</p>
+                  <p className="text-xs text-gray-500">{isAdmin ? 'Administrator' : 'Learner'}</p>
+                </div>
+                <div className="p-2 space-y-1">
+                  <button 
+                    onClick={() => { setView(isAdmin ? 'Analytics' : 'Dashboard'); setIsProfileDropdownOpen(false); }} 
+                    className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-black hover:bg-emerald-50 rounded-lg transition-colors"
+                  >
+                    <LayoutDashboard className="w-4 h-4 text-emerald-600" />
+                    <span>My Dashboard</span>
+                  </button>
+                  <button 
+                    onClick={() => { setView('Settings'); setIsProfileDropdownOpen(false); }} 
+                    className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-black hover:bg-emerald-50 rounded-lg transition-colors"
+                  >
+                    <Settings className="w-4 h-4 text-emerald-600" />
+                    <span>Settings</span>
+                  </button>
+                  <div className="border-t border-emerald-50 my-1"></div>
+                  <button 
+                    onClick={() => { setView('LandingPage'); setIsProfileDropdownOpen(false); }} 
+                    className="w-full flex items-center space-x-3 px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                  >
+                    <LogOut className="w-4 h-4 text-red-500" />
+                    <span>Log Out</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -56,11 +112,34 @@ export default function TopNav({ view, setView }) {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white border-b border-emerald-200 p-4 flex flex-col space-y-4 md:hidden z-50">
-          <button onClick={() => { setView('Dashboard'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-2">Courses</button>
-          <button onClick={() => { setView('Resources'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-2">Resources</button>
-          <button onClick={() => { setView('Analytics'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-2">Admin Dashboard</button>
-          <button onClick={() => { setView('LandingPage'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-2">Log Out</button>
+        <div className="absolute top-16 left-0 right-0 bg-white border-b border-emerald-200 p-6 shadow-xl flex flex-col space-y-2 md:hidden z-50 animate-in slide-in-from-top-2">
+          <div className="flex items-center space-x-4 mb-4 pb-4 border-b border-emerald-100">
+            <img src="https://i.pravatar.cc/150?img=11" alt="Avatar" className="w-12 h-12 rounded-full border border-emerald-200" />
+            <div>
+              <p className="font-bold text-black">Abebe Bikila</p>
+              <p className="text-xs text-emerald-600">{isAdmin ? 'Administrator' : 'Learner'}</p>
+            </div>
+          </div>
+          
+          <button onClick={() => { setView('CourseCatalog'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-3 px-4 rounded-lg hover:bg-emerald-50 transition-colors">Courses Catalog</button>
+          <button onClick={() => { setView(isAdmin ? 'Analytics' : 'Dashboard'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-3 px-4 rounded-lg hover:bg-emerald-50 transition-colors">My Dashboard</button>
+          <button onClick={() => { setView('Resources'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-3 px-4 rounded-lg hover:bg-emerald-50 transition-colors">Resources</button>
+          <button onClick={() => { setView('Settings'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-3 px-4 rounded-lg hover:bg-emerald-50 transition-colors">Settings</button>
+          
+          {!isAdmin ? (
+            <button onClick={() => { setUserRole('admin'); setView('Analytics'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-3 px-4 rounded-lg hover:bg-emerald-50 transition-colors flex items-center">
+              <ShieldCheck className="w-4 h-4 mr-2" /> Switch to Admin
+            </button>
+          ) : (
+            <button onClick={() => { setUserRole('learner'); setView('Dashboard'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-black py-3 px-4 rounded-lg hover:bg-emerald-50 transition-colors flex items-center">
+              <User className="w-4 h-4 mr-2" /> Switch to Learner
+            </button>
+          )}
+
+          <div className="border-t border-emerald-100 my-2"></div>
+          <button onClick={() => { setView('LandingPage'); setIsMobileMenuOpen(false); }} className="text-left font-medium text-red-600 py-3 px-4 rounded-lg hover:bg-red-50 transition-colors flex items-center">
+            <LogOut className="w-4 h-4 mr-2" /> Log Out
+          </button>
         </div>
       )}
     </header>

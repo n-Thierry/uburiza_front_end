@@ -6,6 +6,7 @@ export function AppProvider({ children }) {
   const [theme, setTheme] = useState('light');
   const [dataSaver, setDataSaver] = useState(false);
   const [streak, setStreak] = useState(12);
+  const [userRole, setUserRole] = useState('learner');
 
   // Apply dark mode to document body
   useEffect(() => {
@@ -25,7 +26,7 @@ export function AppProvider({ children }) {
   };
 
   return (
-    <AppContext.Provider value={{ theme, toggleTheme, dataSaver, toggleDataSaver, streak }}>
+    <AppContext.Provider value={{ theme, toggleTheme, dataSaver, toggleDataSaver, streak, userRole, setUserRole }}>
       {children}
     </AppContext.Provider>
   );

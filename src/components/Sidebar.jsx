@@ -1,8 +1,10 @@
 import React from 'react';
 import { BookOpen, LayoutDashboard, FileText, Settings, LogOut, ShieldCheck, BarChart2 } from 'lucide-react';
+import { useAppContext } from '../context/AppContext';
 
 export default function Sidebar({ view, setView }) {
-  const isAdmin = view === 'Analytics' || view === 'AdminForms';
+  const { userRole } = useAppContext();
+  const isAdmin = userRole === 'admin';
 
   const learnerItems = [
     { name: 'Overview', icon: LayoutDashboard, id: 'Dashboard' },
